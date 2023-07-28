@@ -1,0 +1,14 @@
+@keyframes blinking {
+  from{opacity: 100%}
+  50%{  opacity: 0}
+  to{
+    opacity: 100%;
+    }
+
+  }
+#wait{
+  text-align: center;
+  animation-name: blinking;
+  animation-duration: 2s;
+  animation-iteration-count: infinite
+  }

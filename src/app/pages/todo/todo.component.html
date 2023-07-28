@@ -1,15 +1,17 @@
 <app-nav></app-nav>
+
 <div id="form-cont">
 <form>
 
   <input type="text" name="gusto"
          [(ngModel)]="newTask.title"
-         placeholder="Add new Task" class="form-control">
+         placeholder="Add new Task">
 
-  <button (click)="create()" class="btn btn-primary">+</button>
+  <button (click)="create()" >+</button>
   <!--uso la funzione check per verificare se i campi sono validi, in caso contrario disabled passa a true, disabilitando il campo-->
 
 </form>
+  <p id="wait" *ngIf="!taskArray.length">Inserisci nuovo task per visualizzarlo</p>
 <!--
   ngIf sta controllando message, il cui valore iniziale è di stringa vuota, che mappa ad un valore mooleano false
   In caso il messaggio venga cambiato, la stringa mapperà a true mostrando tutto il div, comprensivo di messaggio

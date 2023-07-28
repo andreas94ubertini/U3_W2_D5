@@ -1,4 +1,5 @@
 <app-nav></app-nav>
+  <p id="wait" *ngIf="!taskArray.length">In attesa dei dati...</p>
 <div *ngFor="let task of taskArray">
   <p *ngIf="task.completed">
     <app-task-row

@@ -13,3 +13,15 @@
       }
     }
   }
+@keyframes move {
+  from{transform: translateX(-100px)}
+  50%{transform: translateX(100px)}
+  to{transform: translateX(0px)}
+
+  }
+#wait{
+  text-align: center;
+  animation-name: move;
+  animation-duration: 10s;
+  }
+
