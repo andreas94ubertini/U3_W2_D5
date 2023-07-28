@@ -7,12 +7,9 @@ import {TaskService} from "../../task.service";
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss']
 })
-export class TodoComponent implements OnInit{
+export class TodoComponent implements OnInit {
   taskArray!: Task[]
-  taskArrayHome!: Task[]
-  newTask:Partial<Task> = new Task(0,'',false)
-  message:string = ''
-
+  newTask: Partial<Task> = new Task(0, '', false)
 
   constructor(private taskSvc: TaskService) {
   }
@@ -20,22 +17,24 @@ export class TodoComponent implements OnInit{
   ngOnInit() {
     this.taskArray = []
     this.taskSvc.getAll()
-      .then(data=> {
+      .then(data => {
         this.taskArray = data['db']
       })
   }
+
   create() {
     this.taskSvc.create(this.newTask)
       .then(res => {
         console.log(this.newTask)
-        this.message = `aggiunto`
+
         this.ngOnInit()
       })
   }
-  getData(value:Task){
+
+  getData(value: Task) {
     console.log(value, 'ricevuto')
     const newValue = new Task(value.id, value.title, true)
-    this.taskSvc.completedTask(newValue).then(()=>{
+    this.taskSvc.completedTask(newValue).then(() => {
       this.ngOnInit()
     })
 
