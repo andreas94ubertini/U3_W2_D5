@@ -37,6 +37,5 @@ export class TodoComponent implements OnInit {
     this.taskSvc.completedTask(newValue).then(() => {
       this.ngOnInit()
     })
-
   }
 }

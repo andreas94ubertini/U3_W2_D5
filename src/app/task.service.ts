@@ -44,5 +44,14 @@ constructor() {}
       method: 'DELETE'
     }).then(res => res.json());
   }
+  modifyTask(task:Task){
+     return fetch(`http://localhost:3000/db/${task.id}`, {
+      method: 'PUT',
+       headers: {
+         'content-type' : 'application/json'
+       },
+       body: JSON.stringify(task)
+     }).then(res => res.json())
+   }
 
 }

@@ -3,3 +3,25 @@ p{
   color: white;
   padding: 1%;
   }
+button{
+  border: none;
+  border-radius: 5px;
+  padding: 0.3%;
+  color: white;
+
+  &:hover{
+    cursor: pointer;
+    }
+  }
+.complete{
+  background-color: green;
+  &:active{
+    background-color: lightgreen;
+    }
+  }
+.delete{
+  background-color: red;
+  &:active{
+    background-color: #f66c6c;
+    }
+  }
