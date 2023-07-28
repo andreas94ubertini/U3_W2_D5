@@ -9,6 +9,7 @@ import {Task} from "../../model/task";
 export class TaskRowComponent {
   @Output() completed = new EventEmitter<Task>()
   @Output() deleted = new EventEmitter<Task>()
+  @Output() modified = new EventEmitter<Task>()
   @Input()taskTitle!:string
   @Input()task!:Task
   completedTask(task:Task){
@@ -17,6 +18,9 @@ export class TaskRowComponent {
   deletedTask(task:Task){
     this.deleted.emit(task)
 
+  }
+  modifiedTask(task:Task){
+    this.modified.emit(task)
   }
 
 }

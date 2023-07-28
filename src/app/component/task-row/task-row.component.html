@@ -3,6 +3,9 @@
   <button class="complete" *ngIf="!task.completed"
     (click)="completedTask(task)"
 >Completo</button>
+  <button (click)="modifiedTask(task)" class="modify" *ngIf="!task.completed"
+
+  >Modifica</button>
   <button class="delete" *ngIf="task.completed"
           (click)="deletedTask(task)"
   >Elimina</button>

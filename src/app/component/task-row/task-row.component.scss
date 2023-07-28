@@ -25,3 +25,9 @@ button{
     background-color: #f66c6c;
     }
   }
+.modify{
+  background-color: #e0e000;
+  &:active{
+    background-color: #6c6c05;
+    }
+  }

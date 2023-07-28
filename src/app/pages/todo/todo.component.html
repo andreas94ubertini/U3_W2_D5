@@ -1,9 +1,22 @@
 <app-nav></app-nav>
+<div id="form-cont2" *ngIf="modifyMode">
+  <form #myModForm="ngForm" (ngSubmit)="myModForm.resetForm()">
 
-<div id="form-cont">
+    <input type="text" name="task"
+           [(ngModel)]="modifiedTask.title"
+
+    >
+
+    <button  (click)="modify()" >Modifica</button>
+
+
+  </form>
+</div>
+
+<div id="form-cont" *ngIf="!modifyMode">
 <form #myForm="ngForm" (ngSubmit)="myForm.resetForm()">
 
-  <input type="text" name="gusto"
+  <input type="text" name="task"
          [(ngModel)]="newTask.title"
          placeholder="Add new Task">
 
@@ -20,7 +33,7 @@
   [taskTitle]= "task.title"
   [task]= "task"
   (completed)="getData($event)"
-
+  (modified)="getData3($event)"
 >
 
 </app-task-row>

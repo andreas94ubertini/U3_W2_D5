@@ -51,7 +51,11 @@ constructor() {}
          'content-type' : 'application/json'
        },
        body: JSON.stringify(task)
-     }).then(res => res.json())
+     }).then(res => res.json())       .then(()=>{
+       this.getAll().then(data=>{
+         this.taskArray = data['db'].filter((el:Task)=> el.completed === false)
+       })
+     });
    }
 
 }

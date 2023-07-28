@@ -10,6 +10,8 @@ import {TaskService} from "../../task.service";
 export class TodoComponent implements OnInit {
   taskArray!: Task[]
   newTask: Partial<Task> = new Task(0, '', false)
+  modifyMode:boolean = false
+  modifiedTask!:Task
 
   constructor(private taskSvc: TaskService) {
   }
@@ -26,9 +28,16 @@ export class TodoComponent implements OnInit {
     this.taskSvc.create(this.newTask)
       .then(res => {
         console.log(this.newTask)
-
         this.ngOnInit()
       })
+  }
+  modify() {
+    console.log('modificato')
+    this.taskSvc.modifyTask(this.modifiedTask).then(() => {
+      this.ngOnInit()
+      this.modifyMode = false
+    })
+
   }
 
   getData(value: Task) {
@@ -38,4 +47,11 @@ export class TodoComponent implements OnInit {
       this.ngOnInit()
     })
   }
+  getData3(value: Task) {
+    this.modifyMode = true
+    this.modifiedTask = value
+
+
+  }
+
 }
