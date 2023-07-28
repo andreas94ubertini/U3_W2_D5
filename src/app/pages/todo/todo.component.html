@@ -1,7 +1,7 @@
 <app-nav></app-nav>
 
 <div id="form-cont">
-<form>
+<form #myForm="ngForm" (ngSubmit)="myForm.resetForm()">
 
   <input type="text" name="gusto"
          [(ngModel)]="newTask.title"
