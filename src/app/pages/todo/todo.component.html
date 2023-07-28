@@ -1,0 +1,33 @@
+<app-nav></app-nav>
+<div id="form-cont">
+<form>
+
+  <input type="text" name="gusto"
+         [(ngModel)]="newTask.title"
+         placeholder="Add new Task" class="form-control">
+
+  <button (click)="create()" class="btn btn-primary">+</button>
+  <!--uso la funzione check per verificare se i campi sono validi, in caso contrario disabled passa a true, disabilitando il campo-->
+
+</form>
+<!--
+  ngIf sta controllando message, il cui valore iniziale è di stringa vuota, che mappa ad un valore mooleano false
+  In caso il messaggio venga cambiato, la stringa mapperà a true mostrando tutto il div, comprensivo di messaggio
+-->
+<div *ngIf="message" class="alert alert-success">
+  {{message}}
+</div>
+</div>
+<div *ngFor="let task of taskArray">
+  <p *ngIf="!task.completed">
+<app-task-row
+  [taskTitle]= "task.title"
+  [task]= "task"
+  (completed)="getData($event)"
+
+>
+
+</app-task-row>
+  </p>
+</div>
+

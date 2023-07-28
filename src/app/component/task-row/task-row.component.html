@@ -1,0 +1,9 @@
+<p>
+  {{taskTitle}}
+  <button *ngIf="!task.completed"
+    (click)="completedTask(task)"
+>Completo</button>
+  <button *ngIf="task.completed"
+          (click)="deletedTask(task)"
+  >Elimina</button>
+</p>

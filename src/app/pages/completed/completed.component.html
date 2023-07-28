@@ -1,0 +1,12 @@
+<app-nav></app-nav>
+<div *ngFor="let task of taskArray">
+  <p *ngIf="task.completed">
+    <app-task-row
+      [taskTitle]= "task.title"
+      [task]= "task"
+      (deleted)="getData2($event)"
+    >
+
+    </app-task-row>
+  </p>
+</div>
